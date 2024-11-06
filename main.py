@@ -99,7 +99,7 @@ def index():
                 flash(f"Invalid input type: {input_type}. Please enter 'pdf' or 'image'.", "error")
                 return redirect(url_for('index'))
 
-            # return redirect(url_for('output', output_files=output_files))
+            return redirect(url_for('output', output_files=output_files))
 
         except Exception as e:
             print(e)
@@ -119,4 +119,4 @@ def output():
     return render_template('output.html', output_files=output_files)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000)
